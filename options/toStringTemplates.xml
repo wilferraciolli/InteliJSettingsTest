@@ -1,0 +1,13 @@
+<application>
+  <component name="ToStringTemplates">
+    <option name="defaultTempalteName" value="People Frirst toString()" />
+    <option name="templates">
+      <list>
+        <TemplateResource>
+          <option name="fileName" value="People Frirst toString()" />
+          <option name="template" value="public java.lang.String toString() {&#10;#set( $LS = '[')&#10;#set( $RS = ']')&#10;#if ( $members.size() &gt; 0 )&#10;#set ( $i = 0 )&#10;    return &quot;$classname $LS##&#10;#foreach( $member in $members )&#10;#if ( $i &gt; 0 )&#10;&quot;, ##&#10;#end&#10;#if ( $member.primitiveArray )&#10;${member.name}.length=&quot; + ((${member.accessor} != null) ? ${member.accessor}.length : &quot;0&quot;) +##&#10;#elseif ( $member.objectArray )&#10;$member.name=&quot; + java.util.Arrays.toString($member.accessor) +##&#10;#elseif ( $member.calendar )&#10;$member.name=&quot; + com.midlandhr.trent.utils.CalendarUtils.formatDateTime($member.accessor) +##&#10;#else&#10;$member.name=&quot; + $member.accessor +##&#10;#end&#10;#set ( $i = $i + 1 )&#10;#end&#10;&#9;#if ( $class.hasSuper )&#10;&#9;&quot;$RS &quot; + super.toString();&#10;&#9;#else&#10;&#9;&quot;$RS&quot;;&#10;&#9;#end&#10;#else&#10;&#9;#if ( $class.hasSuper )&#10;&#9;return &quot;$classname $LS$RS &quot; + super.toString();&#10;&#9;#else&#10;&#9;return &quot;$classname $LS$RS&quot;;&#10;&#9;#end&#10;#end&#10;}" />
+        </TemplateResource>
+      </list>
+    </option>
+  </component>
+</application>
